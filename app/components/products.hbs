@@ -1,0 +1,17 @@
+<form class="form-inline">
+  <div class="form-group mr-3 mb-2">
+   <label>
+      <span>Welk racket wil je aanbevelen?</span>
+      <Input @value={{this.query}} class="form-control mx-2" />
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Zoek</button>
+</form>
+<p>Resultaten voor: {{this.query}}</p>
+<div class="products d-flex flex-wrap">
+  <Products::Filter @products={{@products}} @query={{this.query}} as |results|>
+    {{#each results as |product|}}
+      <Product @product={{product}} />
+    {{/each}}
+  </Products::Filter>
+</div>

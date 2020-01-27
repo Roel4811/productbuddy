@@ -1,0 +1,33 @@
+<div class="product card mb-3 mr-3" style="width: 18rem;">
+  <div class="details card-body">
+    <Product::Image src={{@product.image}}
+                    alt="racket-image"
+                    style="max-width:100%">
+
+    </Product::Image>
+    <h5 class="card-title detail name">{{@product.name}}</h5>
+    <h5 class="card-subtitle mb-2 text-muted detail type">{{@product.type}}</h5>
+    <div class="card-text">
+      <div class="detail brand">
+        <span>Brand:</span> {{@product.brand}}
+      </div>
+      <div class="detail price">
+        <span>Price:</span> {{@product.price}}
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <LinkTo @route="product" @model={{@product}}>
+        Bekijk
+      </LinkTo>
+      {{#if this.isSelected }}
+        <button type="button" class="btn btn-primary" {{on "click" this.removeSelected}}>
+          ✔ Geselecteerd
+        </button>
+      {{else}}
+        <button type="button" class="btn btn-primary" {{on "click" this.addSelected}}>
+          Selecteer
+        </button>
+      {{/if}}
+    </div>
+  </div>
+</div>
