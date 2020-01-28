@@ -7,13 +7,11 @@ export default class SelectionComponent extends Component {
 
   @action
   addProduct() {
-    this.productIds.push(2)
-    console.log(this.productIds)
+    this.productIds.addObject(7)
   }
 
   @action
   removeProduct(id) {
-    this.productIds.splice(this.productIds.indexOf(id), 1)
-    console.log(this.productIds)
+    this.productIds.removeObject(id)
   }
 }

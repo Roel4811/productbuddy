@@ -1,10 +1,16 @@
 <div class="container">
   <h1>Zoek rackets</h1>
   <p>Zoek hier de beschikbare rackets</p>
-  <Products @products={{@model.products}} />
-{{!--   <button onclick={{action selectProduct}}>
-    Click me!
-  </button> --}}
-  <Selection></Selection>
-  {{!-- {{debugger}} --}}
+  <Products @products={{model.products}} />
+  <Input @value={{model.products.content.firstObject._record.name}} @enter={{action this.selectProduct}} />
+  Selected Products:
+  <ul>
+    {{#each model.selection.products as |product|}}
+      <li>
+        {{product.name}}
+      </li>
+    {{/each}}
+  </ul>
+  <button onclick={{ action (fn selectProduct 1 model.products.firstObject)}}>Voeg een product toe</button>
+  {{selection}}
 </div>

@@ -8,6 +8,7 @@ export default function() {
     id: 1,
     type: 'selections',
     attributes: {
+      name: "Selectie van Roel",
       productIds: [1, 2, 3]
     }
   }]
@@ -20,7 +21,8 @@ export default function() {
       type: 'Padelrackets',
       brand: 'Babolat',
       price: 59.99,
-      image: 'https://contents.mediadecathlon.com/p1250137/800x800/sq/tennisracket_volwassenen_tr_900_zwart_oranje_artengo_8488907_1250137.jpg?k=42c9d8c61ef05468427e0b4ce9548647'
+      image: 'https://contents.mediadecathlon.com/p1250137/800x800/sq/tennisracket_volwassenen_tr_900_zwart_oranje_artengo_8488907_1250137.jpg?k=42c9d8c61ef05468427e0b4ce9548647',
+      selectionIds: []
     }
   },
   {
@@ -31,7 +33,8 @@ export default function() {
       type: 'Padelrackets',
       brand: 'Babolat',
       price: 119.99,
-      image: 'https://contents.mediadecathlon.com/p1250137/800x800/sq/tennisracket_volwassenen_tr_900_zwart_oranje_artengo_8488907_1250137.jpg?k=42c9d8c61ef05468427e0b4ce9548647'
+      image: 'https://contents.mediadecathlon.com/p1250137/800x800/sq/tennisracket_volwassenen_tr_900_zwart_oranje_artengo_8488907_1250137.jpg?k=42c9d8c61ef05468427e0b4ce9548647',
+      selectionIds: []
     }
   },
   {
@@ -42,12 +45,17 @@ export default function() {
       type: 'Padelrackets',
       brand: 'Babolat',
       price: 89.99,
-      image: 'https://contents.mediadecathlon.com/p1250137/800x800/sq/tennisracket_volwassenen_tr_900_zwart_oranje_artengo_8488907_1250137.jpg?k=42c9d8c61ef05468427e0b4ce9548647'
+      image: 'https://contents.mediadecathlon.com/p1250137/800x800/sq/tennisracket_volwassenen_tr_900_zwart_oranje_artengo_8488907_1250137.jpg?k=42c9d8c61ef05468427e0b4ce9548647',
+      selectionIds: []
     }
   }]
 
   this.get('/selections', () => {
     return { data: selections }
+  })
+
+  this.post('/selections', () => {
+    return { data: null }
   })
 
   this.get('/selections/:id', (schema, request) => {
@@ -60,7 +68,7 @@ export default function() {
   })
 
   this.get('/products/:id', (schema, request) => {
-    let product = products.find(element => element.id === 1 )
+    let product = products.find(element => element.id === 1)
     return { data: product }
   })
 }
