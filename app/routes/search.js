@@ -4,7 +4,7 @@ import RSVP from 'rsvp';
 
 export default class IndexRoute extends Route {
   @service store;
-  async model() {
+  model() {
     return RSVP.hash({
       products: this.store.findAll('product', {
         include: 'selections'

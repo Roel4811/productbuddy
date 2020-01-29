@@ -4,6 +4,7 @@
   <Products @products={{model.products}} />
   <Input @value={{model.products.content.firstObject._record.name}} @enter={{action this.selectProduct}} />
   Selected Products:
+  <h1>{{ model.name }}</h1>
   <ul>
     {{#each model.selection.products as |product|}}
       <li>
@@ -12,5 +13,7 @@
     {{/each}}
   </ul>
   <button onclick={{ action (fn selectProduct 1 model.products.firstObject)}}>Voeg een product toe</button>
-  {{selection}}
+  <Selection></Selection>
 </div>
+
+{{!-- {{ log model.products }} --}}
